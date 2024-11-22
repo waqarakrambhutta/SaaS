@@ -1,10 +1,22 @@
 import pathlib
 from django.http import HttpResponse
+from django.shortcuts import render
 
 html_dir = pathlib.Path(__file__).resolve().parent
 
 def home_page_view(request, *args, **kwargs):
-    page_title = 'My page will be'
+
+    page_title = 'My page'
+    my_content = {
+        "title": page_title,
+    }
+    html_template = 'home.html'
+    return render(request, html_template, my_content )
+
+
+def old_home_page_view(request, *args, **kwargs):
+
+    page_title = 'My page'
     my_content = {
         "title": page_title,
     }
