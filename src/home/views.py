@@ -1,16 +1,22 @@
 import pathlib
 from django.http import HttpResponse
 from django.shortcuts import render
+from visits.models import PageVisit
 
 html_dir = pathlib.Path(__file__).resolve().parent
 
 def home_page_view(request, *args, **kwargs):
-
+    qs = PageVisit.objects.all()
+    queryset = PageVisit.objects.filter(path = '/')
     page_title = 'My page'
     my_content = {
         "title": page_title,
+        "page_visit_count": qs.count(),
+        "percent": (queryset.count() /qs.count()) * 100.00,
+        "total_visit_count": queryset.count(),
     }
     html_template = 'home.html'
+    PageVisit.objects.create(path=request.path)
     return render(request, html_template, my_content )
 
 

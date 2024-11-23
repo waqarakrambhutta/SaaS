@@ -2,4 +2,8 @@
 {%endblock head_title %} {% block content %}
 <p>Hello again!</p>
 <p>{{request.user}} - {{request.method}} - {{request.user.is_authenticated}}</p>
-{% include "snippets/welcome-user-msg.html" %} {% endblock content %}
+{% include "snippets/welcome-user-msg.html" %}
+<p>Page visits: {{page_visit_count}}</p>
+<p>Percent: {{percent}}</p>
+<p>Total visits: {{total_visit_count}}</p>
+{% endblock content %}
