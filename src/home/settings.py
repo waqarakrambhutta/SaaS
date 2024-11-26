@@ -27,12 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.railway.app', # https://saas.prod.railway.app
-    'saas-production-92c8.up.railway.app',
 ]
 if DEBUG:
-    ALLOWED_HOSTS=[
+    ALLOWED_HOSTS+=[
         '127.0.0.1',
-        'localhost'
+        'localhost',
     ]
 
 # Application definition
