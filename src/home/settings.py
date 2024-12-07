@@ -25,7 +25,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = str(os.environ.get('DJANGO_DEBUG')).lower() == 'true' or True
 
-DEBUG = config('DJANGO_DEBUG')
+DEBUG = config('DJANGO_DEBUG', cast=bool)
 
 print('DEBUG', DEBUG, type(DEBUG))
 
@@ -95,7 +95,7 @@ DATABASES = {
 }
 
 CONN_MAX_AGE = config('CONN_MAX_AGE', cast=int, default=30)
-DATABASE_URL = config('DATABASE_URL', cast=str)
+DATABASE_URL = config('DATABASE_URL', default=None)
 
 if DATABASE_URL is not None:
     import dj_database_url 
@@ -151,7 +151,7 @@ STATICFILES_DIRS = [
     STATICFILES_BASE_DIR
 ]
 
-STATIC_ROOT = BASE_DIR.parent / 'local-cdn'
+STATIC_ROOT = BASE_DIR / 'local-cdn'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
