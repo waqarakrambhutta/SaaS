@@ -22,6 +22,7 @@ from auth import views as auth_view
 urlpatterns = [
     path("",home_view),
     path("login/", auth_view.login_view),
+    path("register/", auth_view.register_view),
     path("about/", about_view),
     path("hello-world/", home_view),
     path("hello-world.html", home_view),
