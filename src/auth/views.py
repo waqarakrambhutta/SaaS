@@ -33,4 +33,3 @@ def register_view(request):
             pass
 
     return render(request, 'auth/register.html', {})
-
