@@ -20,7 +20,7 @@ from .views import home_view,about_view
 from auth import views as auth_view
 
 urlpatterns = [
-    path("",home_view),
+    path("",home_view, name='home'),    # Using this name is djnago url reverse()
     path("login/", auth_view.login_view),
     path("register/", auth_view.register_view),
     path("about/", about_view),
