@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     "widget_tweaks",
     "slippers",
 ]
@@ -80,6 +81,8 @@ MIDDLEWARE = [
 
 
 ROOT_URLCONF = 'home.urls'
+
+
 
 TEMPLATES = [
     {
@@ -158,7 +161,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SOCIALACCOUNT_PROVIDERS = {}
+SOCIALACCOUNT_PROVIDERS = {
+    'github' : {
+        'VERIFIED_EMAIL': True
+    }
+}
 
 
 
@@ -182,7 +189,6 @@ STATIC_URL = 'static/'
 STATICFILES_BASE_DIR = BASE_DIR / 'staticfiles'
 STATICFILES_BASE_DIR.mkdir(exist_ok=True, parents=True)
 STATICFILES_VENDOR_DIR = STATICFILES_BASE_DIR / 'vendors'
-
 STATICFILES_DIRS = [
     STATICFILES_BASE_DIR
 ]

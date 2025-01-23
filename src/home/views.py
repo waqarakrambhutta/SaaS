@@ -52,3 +52,16 @@ def old_home_page_view(request, *args, **kwargs):
     # html_file_path = html_dir / 'home.html'
     # html_= html_file_path.read_text() 
     return HttpResponse(html_)
+
+VALID_CODE = 'abc123'
+
+def pw_protected_view(request, *args, **kwargs):
+    is_allowed = request.session.get('protected_page_allowed') or 0
+    print(request.session.get('protected_page_allowed'), type(request.session.get('protected_page_allowed')))
+    if request.method == 'POST':
+        user_pw_code = request.POST.get('code') or None
+        if user_pw_code == VALID_CODE:
+            request.session['protected_page_allowed'] = 1
+    if is_allowed:
+        return render(request, 'protected/view.html', {})
+    return render(request, 'protected/entry.html', {})
