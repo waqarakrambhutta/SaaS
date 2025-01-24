@@ -21,6 +21,7 @@ from .views import (
     about_view, 
     pw_protected_view,
     user_only_view,
+    staff_only_view
     )
 from auth import views as auth_view
 
@@ -35,5 +36,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("protected/", pw_protected_view, name='protected'),
     path("protected/user-only/", user_only_view),
+    path("protected/staff-only/", staff_only_view),
 
 ]
