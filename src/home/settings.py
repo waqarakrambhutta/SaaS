@@ -1,7 +1,4 @@
 
-
-
-
 """
 Django settings for home project.
 
