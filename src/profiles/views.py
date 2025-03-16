@@ -26,7 +26,6 @@ def profile_detail_view(request,username=None,*args, **kwargs):
         user.has_perm("subscriptions.basic_ai"),
         user.has_perm("subscriptions.pro"),
         user.has_perm("subscriptions.advance"),
-
     )
     
     profile_user_object=get_object_or_404(User, username=username)
