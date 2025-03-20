@@ -1,4 +1,5 @@
 
+
 """
 Django settings for home project.
 
@@ -13,7 +14,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
 
 from decouple import config
 
